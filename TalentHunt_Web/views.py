@@ -28,5 +28,24 @@ def talentlog_view(request):
 def hunterProfile_view(request):
     return render(request, 'hunterprofile.html')
 
-def _view(request):
-    return render(request, '')
+def speedHunter_view(request):
+    return render(request, 'speedhunter.html')
+
+def hunterProjects_view(request):
+    return render(request, 'hunterproyects.html')
+
+def hunterChangeInfo_view(request):
+    return render(request, 'hunterchangeinfo.html')
+
+def evaluateTalent_view(request):
+    return render(request, 'evaluatemytalent.html')
+
+def evaluateHunter_view(request):
+    return render(request, 'evaluatemyhunter.html')
+
+def contractHunt_view(request):
+    return render(request, 'contracthunt.html')
+
+def contractTalent_view(request):
+    return render(request, 'contracttalent.html')
+

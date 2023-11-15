@@ -14,6 +14,11 @@ urlpatterns = [
     path('hunterhume/', hunterHume_sign, name='hunterhume'),
     path('talentlog/', talentlog_view, name = 'talentlog'),
     path('hunterprofile/',hunterProfile_view , name='hunterprofile'),
-    #path('speedhunter/', speedHunter_view, name='speedhunter'),
-    #path('hunterproyects/',hunterProjects_view , name='hunterproyects'), 
+    path('speedhunter/', speedHunter_view, name='speedhunter'),
+    path('hunterproyects/',hunterProjects_view , name='hunterproyects'), 
+    path('hunterchangeinfo/',hunterChangeInfo_view, name='hunterchangeinfo'), 
+    path('evaluatemytalent/',evaluateTalent_view, name='evaluateTalent'), 
+    path('evaluatemyhunter/', evaluateHunter_view, name='evaluateHunter') ,
+    path('contracthunt/', contractHunt_view, name='contracthunt'),
+    path('contracttalent/', contractTalent_view, name='contracttalent'),
 ]
