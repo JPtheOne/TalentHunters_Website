@@ -21,4 +21,8 @@ urlpatterns = [
     path('evaluatemyhunter/', evaluateHunter_view, name='evaluateHunter') ,
     path('contracthunt/', contractHunt_view, name='contracthunt'),
     path('contracttalent/', contractTalent_view, name='contracttalent'),
+    path('talentprofile/', talentProfile_view, name='talentprofile'),
+    path('speedtalent/', speedTalent_view, name='speedtalent'),
+    path('talentproyects/', talentProjects_view, name='talentproyects'),
+    path('talentchangeinfo/', talentChangeInfo_view, name='talentchangeinfo'),
 ]

@@ -9,7 +9,7 @@ def login_view(request):
 
 def signup_view(request):
     return render(request, 'talentOrhunter.html')
-
+()
 def forgot_view(request):
     return render(request, 'forgot.html')
 
@@ -49,3 +49,14 @@ def contractHunt_view(request):
 def contractTalent_view(request):
     return render(request, 'contracttalent.html')
 
+def talentProfile_view(request):
+    return render(request, 'talentprofile.html')
+
+def speedTalent_view(request):
+    return render(request, 'speedtalent.html')
+
+def talentProjects_view(request):
+    return render(request, 'talentproyects.html')
+
+def talentChangeInfo_view(request):
+    return render(request, 'talentchangeinfo.html')

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,19 +88,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="talentlog.html">Home</a>
+            <a class="nav-link" href="/talentlog/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="talentprofile.html">Profile</a>
+            <a class="nav-link" href="/talentprofile/">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="speedtalent.html">Speed Searching</a>
+            <a class="nav-link" href="/speedtalent/">Speed Searching</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="talentproyects.html">My Projects</a>
+            <a class="nav-link" href="/talentproyects/">My Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Logout</a>
+            <a class="nav-link" href="/">Logout</a>
           </li>
         </ul>
       </div>
@@ -112,7 +113,7 @@
 
     <!-- Profile Picture -->
     <div class="mb-4 text-center">
-      <img src="juan.jpg" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+      <img src="{% static 'pics/juan.jpg' %}" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
     </div>
 
         <!-- Profile Information -->
@@ -164,7 +165,7 @@
 
     <!-- Change Info Button -->
     <button type="button" class="btn btn-change-info btn-block" onclick="changeInfo()">
-      <a  class="nav-link" href="talentchangeinfo.html">Change Info</a>
+      <a  class="nav-link" href="/talentchangeinfo/">Change Info</a>
   </div>
 
   <!-- Bootstrap JS (optional) -->
