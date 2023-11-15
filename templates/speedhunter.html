@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Speed Searching</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    .navbar {
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color for links */
+    }
+
+    .talent-card {
+      max-width: 300px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .talent-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .talent-info {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .match-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn-match {
+      background-color: #8a63d2; /* Purple button color */
+      color: #fff;
+      flex: 1;
+      margin-right: 5px;
+    }
+
+    .btn-match:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar for Hunters -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Talent Hunters</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="hunterhume.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hunterprofile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="speedhunter.html">Speed Searching</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hunterproyects.html">My Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Talent Card -->
+  <div class="talent-card" id="talentCard">
+    <img src="juan.jpg" alt="Talent Image" class="talent-image img-fluid">
+    <div class="talent-info">
+      <strong>Name:</strong> John Doe<br>
+      <strong>Skills:</strong> Web Development, JavaScript, React.js<br>
+      <strong>Location:</strong> City, Country
+    </div>
+    <div class="match-buttons">
+      <button class="btn btn-match" data-bs-toggle="modal" data-bs-target="#matchModal">Yes</button>
+      <button class="btn btn-match" onclick="loadNextTalent()">No</button>
+    </div>
+  </div>
+
+  <!-- Match Modal -->
+  <div class="modal fade" id="matchModal" tabindex="-1" aria-labelledby="matchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="matchModalLabel">Choose a Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Project Selection Form -->
+          <form>
+            <div class="mb-3">
+              <label for="projectSelection" class="form-label">Select Project:</label>
+              <select class="form-control" id="projectSelection">
+                <option value="project1">Project 1</option>
+                <option value="project2">Project 2</option>
+                <option value="project3">Project 3</option>
+                <!-- Add more projects as needed -->
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="confirmMatch()">
+              <a  class="nav-link" href="contracthunt.html">Confirm Match</a>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for matching -->
+  <script>
+    // Sample talent data
+    const talents = [
+      { name: 'John Doe', skills: 'Web Development, JavaScript, React.js', location: 'City, Country', image: 'juan.jpg' },
+      { name: 'Jane Smith', skills: 'Graphic Design, Photoshop, Illustrator', location: 'Another City, Country', image: 'juana.jpg' },
+      // Add more talents as needed
+    ];
+
+    let currentTalentIndex = 0;
+
+    function loadNextTalent() {
+      currentTalentIndex = (currentTalentIndex + 1) % talents.length;
+      updateTalentCard();
+    }
+
+    function updateTalentCard() {
+      const talentCard = document.getElementById('talentCard');
+      const talentInfo = talents[currentTalentIndex];
+      talentCard.querySelector('.talent-image').src = talentInfo.image;
+      talentCard.querySelector('.talent-info').innerHTML =
+        `<strong>Name:</strong> ${talentInfo.name}<br>` +
+        `<strong>Skills:</strong> ${talentInfo.skills}<br>` +
+        `<strong>Location:</strong> ${talentInfo.location}`;
+    }
+
+    function confirmMatch() {
+      // Add logic here to handle the match confirmation, you can send the data to the backend
+      alert('Match confirmed for project: ' + document.getElementById('projectSelection').value);
+      // You might want to fetch the next talent after a match
+      // Example: loadNextTalent();
+    }
+  </script>
+</body>
+
+</html>

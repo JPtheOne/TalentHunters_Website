@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Talent Signup</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .signup-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 500px;
+      
+    }
+
+    h2 {
+      color: #343a40;
+      text-align: center;
+    }
+
+    .form-label {
+      color: #495057;
+    }
+
+    .form-control {
+      border-color: #ced4da;
+    }
+
+    .btn-primary {
+      background-color: #8a63d2; /* Purple button color */
+      border-color: #8a63d2;
+    }
+
+    .btn-primary:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+      border-color: #613bbd;
+    }
+
+    /* Additional styles for skills section */
+    .skill-inputs {
+      margin-bottom: 10px;
+    }
+
+    .remove-skill {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2 class="mb-4"> Talent Sign Up</h2>
+    <form>
+      <!-- Basic Information -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="mb-3">
+        <label for="password-confirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="password-confirm" name="password-confirm" required>
+      </div>
+      <div class="mb-3">
+        <label for="full-name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="full-name" name="full-name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location">
+      </div>
+      <div class="mb-3">
+        <label for="linkedin" class="form-label">LinkedIn Profile</label>
+        <input type="text" class="form-control" id="linkedin" name="linkedin">
+      </div>
+      <div class="mb-3">
+        <label for="availability" class="form-label">Availability</label>
+        <textarea class="form-control" id="availability" name="availability" rows="3"></textarea>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="mb-4">
+        <label class="form-label">Skills</label>
+        <div class="skill-inputs">
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control" name="skill[]" placeholder="Skill" required>
+            </div>
+            <div class="col">
+              <select class="form-control" name="proficiency[]" required>
+                <option value="" disabled selected>Select Proficiency</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" name="experience[]" placeholder="Years of Experience" required>
+            </div>
+            <div class="col-auto">
+              <span class="remove-skill" onclick="removeSkill(this)">Remove</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="addSkill()">Add Skill</button>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="mb-3">
+        <label for="hourly-rate" class="form-label">Hourly Rate</label>
+        <input type="number" class="form-control" id="hourly-rate" name="hourly-rate" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button href="talentlog.html" type="submit" class="btn btn-primary btn-block">
+        <a href="/talentlog/" class="nav-link" href="#">Signup</a>
+      </button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  
+  <!-- Custom JavaScript for adding/removing skills -->
+  <script>
+    function addSkill() {
+      const skillInputs = document.querySelector('.skill-inputs');
+      const newSkill = skillInputs.firstElementChild.cloneNode(true);
+      newSkill.querySelector('input').value = '';
+      newSkill.querySelector('select').selectedIndex = 0;
+      newSkill.querySelector('input[type="number"]').value = '';
+      skillInputs.appendChild(newSkill);
+    }
+
+    function removeSkill(element) {
+      const skillInputs = document.querySelector('.skill-inputs');
+      if (skillInputs.childElementCount > 1) {
+        skillInputs.removeChild(element.parentNode.parentNode);
+      }
+    }
+  </script>
+</body>
+
+</html>

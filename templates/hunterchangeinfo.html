@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Change Hunter Info</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .signup-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 500px;
+    }
+
+    h2 {
+      color: #343a40;
+      text-align: center;
+    }
+
+    .form-label {
+      color: #495057;
+    }
+
+    .form-control {
+      border-color: #ced4da;
+    }
+
+    .btn-primary {
+      background-color: #8a63d2; /* Purple button color */
+      border-color: #8a63d2;
+    }
+
+    .btn-primary:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+      border-color: #613bbd;
+    }
+
+    /* Additional styles for projects section */
+    .project-inputs {
+      margin-bottom: 10px;
+    }
+
+    .remove-project {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2 class="mb-4">Change Hunter Info</h2>
+    <form>
+      <!-- Basic Information -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" value="existing_username" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="full-name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="full-name" name="full-name" value="Existing Full Name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="existing.email@example.com" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone" value="123-456-7890">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" value="Existing Location">
+      </div>
+      <div class="mb-3">
+        <label for="linkedin" class="form-label">LinkedIn Profile</label>
+        <input type="text" class="form-control" id="linkedin" name="linkedin" value="https://linkedin.com/in/existingprofile">
+      </div>
+      <div class="mb-3">
+        <label for="industry" class="form-label">Industry Type</label>
+        <input type="text" class="form-control" id="industry" name="industry" value="Existing Industry">
+      </div>
+
+      <!-- Projects Section -->
+      <div class="mb-4">
+        <label class="form-label">Projects</label>
+        <div class="project-inputs">
+          <div class="project-row">
+            <div class="col">
+              <input type="text" class="form-control" name="project-title[]" placeholder="Project Title" value="Existing Project Title" required>
+            </div>
+            <div class="col">
+              <textarea class="form-control" name="project-description[]" placeholder="Project Description" rows="2" required>Existing Project Description</textarea>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="required-skills[]" placeholder="Required Skills" value="Existing Skills" required>
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" name="budget[]" placeholder="Budget" value="1000" required>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="duration[]" placeholder="Duration" value="1 month" required>
+            </div>
+            <div class="col">
+              <select class="form-control" name="status[]" required>
+                <option value="open" selected>Open</option>
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="col-auto">
+              <span class="remove-project" onclick="removeProject(this)">Remove</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="addProject()">Add Project</button>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary btn-block">
+        <a href="hunterprofile.html" class="nav-link" href="#">Update Info</a>
+      </button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  
+
+  <!-- Custom JavaScript for adding/removing projects -->
+  <script>
+    function addProject() {
+      const projectInputs = document.querySelector('.project-inputs');
+      const newProject = projectInputs.firstElementChild.cloneNode(true);
+      newProject.querySelectorAll('input, textarea, select').forEach((element) => {
+        element.value = '';
+      });
+      projectInputs.appendChild(newProject);
+    }
+
+    function removeProject(element) {
+      const projectInputs = document.querySelector('.project-inputs');
+      if (projectInputs.childElementCount > 1) {
+        projectInputs.removeChild(element.parentNode.parentNode);
+      }
+    }
+  </script>
+</body>
+
+</html>

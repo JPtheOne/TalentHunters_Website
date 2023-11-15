@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Talent Profile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    .navbar {
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color for links */
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      color: #495057;
+    }
+
+    .form-control {
+      border-color: #ced4da;
+    }
+
+    .reputation-stars {
+      color: #f8d300; /* Yellow color for stars */
+    }
+
+    .availability-label {
+      font-weight: bold;
+    }
+
+    .skill-list {
+      margin-bottom: 20px;
+    }
+
+    .hourly-rate {
+      margin-bottom: 20px;
+    }
+
+    .btn-change-info {
+      background-color: #8a63d2; /* Purple button color */
+      border-color: #8a63d2;
+      color: #fff;
+    }
+
+    .btn-change-info:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+      border-color: #613bbd;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar for Logged-in Talent -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Talent Hunters</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="talentlog.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="talentprofile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="speedtalent.html">Speed Searching</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="talentproyects.html">My Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Talent Profile -->
+  <div class="profile-container">
+    <h2 class="mb-4">Talent Profile</h2>
+
+    <!-- Profile Picture -->
+    <div class="mb-4 text-center">
+      <img src="juan.jpg" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+    </div>
+
+        <!-- Profile Information -->
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <p id="username">talent_user123</p>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <p id="name">John Doe</p>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <p id="email">john.doe@example.com</p>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <p id="phone">123-456-7890</p>
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <p id="location">City, Country</p>
+          </div>
+          <div class="mb-3">
+            <label for="linkedin" class="form-label">LinkedIn Profile</label>
+            <p id="linkedin">linkedin.com/in/johndoe</p>
+          </div>
+          <div class="mb-3">
+            <label for="reputation" class="form-label">Reputation</label>
+            <div class="reputation-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+          </div>
+          <div class="mb-3">
+            <label for="availability" class="form-label availability-label">Availability</label>
+            <p id="availability">Available for new opportunities</p>
+          </div>
+          <!-- Skills Section -->
+  <div class="mb-3">
+    <label for="skills" class="form-label">Skills</label>
+    <ul class="skill-list">
+      <li>Web Development (Proficiency: Advanced, Experience: 5 years)</li>
+      <li>JavaScript (Proficiency: Intermediate, Experience: 3 years)</li>
+      <li>React.js (Proficiency: Advanced, Experience: 4 years)</li>
+    </ul>
+  </div>
+          <div class="mb-3 hourly-rate">
+            <label for="hourly-rate" class="form-label">Hourly Rate</label>
+            <p id="hourly-rate">$50</p>
+          </div>
+
+    <!-- Change Info Button -->
+    <button type="button" class="btn btn-change-info btn-block" onclick="changeInfo()">
+      <a  class="nav-link" href="talentchangeinfo.html">Change Info</a>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for change info button -->
+  <script>
+    function changeInfo() {
+      // Add your logic here to enable form fields for editing
+      // You can use JavaScript to toggle the "readonly" attribute
+    }
+  </script>
+</body>
+
+</html>

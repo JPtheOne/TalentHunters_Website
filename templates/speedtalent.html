@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Speed Searching</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    .navbar {
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color for links */
+    }
+
+    .project-card {
+      max-width: 300px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .project-info {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .match-button {
+      background-color: #8a63d2; /* Purple button color */
+      color: #fff;
+      width: 100%;
+    }
+
+    .match-button:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+    }
+
+    .no-button {
+      background-color: #dc3545; /* Red button color */
+      color: #fff;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .no-button:hover {
+      background-color: #bb2c3b; /* Darker red on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar for Talents -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Talent Hunters</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="talentlog.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="talentprofile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="speedtalent.html">Speed Searching</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="talentproyects.html">My Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Project Card -->
+  <div class="project-card" id="projectCard">
+    <img src="project1.jpg" alt="Project Image" class="project-image img-fluid">
+    <div class="project-info">
+      <strong>Title:</strong> Project 1<br>
+      <strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      <strong>Skills:</strong> Web Development, JavaScript, React.js<br>
+      <strong>Budget:</strong> $1000<br>
+      <strong>Duration:</strong> 2 months
+    </div>
+    <button class="btn match-button" onclick="confirmMatch()">
+      <a  class="nav-link" href="contracttalent.html">Yes</a>
+    </button>
+    <button class="btn no-button" onclick="loadNextProject()">No</button>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for matching -->
+  <script>
+    // Sample project data
+    const projects = [
+      { title: 'Project 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', skills: 'Web Development, JavaScript, React.js', budget: '$1000', duration: '2 months', image: 'juan.jpg' },
+      { title: 'Project 2', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', skills: 'Graphic Design, Photoshop, Illustrator', budget: '$800', duration: '1.5 months', image: 'juana.jpg' },
+      // Add more projects as needed
+    ];
+
+    let currentProjectIndex = 0;
+
+    function loadNextProject() {
+      currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+      updateProjectCard();
+    }
+
+    function updateProjectCard() {
+      const projectCard = document.getElementById('projectCard');
+      const projectInfo = projects[currentProjectIndex];
+      projectCard.querySelector('.project-image').src = projectInfo.image;
+      projectCard.querySelector('.project-info').innerHTML =
+        `<strong>Title:</strong> ${projectInfo.title}<br>` +
+        `<strong>Description:</strong> ${projectInfo.description}<br>` +
+        `<strong>Skills:</strong> ${projectInfo.skills}<br>` +
+        `<strong>Budget:</strong> ${projectInfo.budget}<br>` +
+        `<strong>Duration:</strong> ${projectInfo.duration}`;
+    }
+
+    function confirmMatch() {
+      // Add logic here to handle the match confirmation, you can send the data to the backend
+      alert('Match confirmed for project: ' + projects[currentProjectIndex].title);
+      // Fetch the next project after a match
+      loadNextProject();
+    }
+
+    // Load the initial project
+    updateProjectCard();
+  </script>
+</body>
+
+</html>

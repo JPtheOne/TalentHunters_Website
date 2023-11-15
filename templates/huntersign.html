@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hunter Signup</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #8a63d2; /* Purple background color */
+      
+    }
+
+    .signup-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 600px;
+      
+    }
+
+    h2 {
+      color: #343a40;
+      text-align: center;
+    }
+
+    .form-label {
+      color: #495057;
+    }
+
+    .form-control {
+      border-color: #ced4da;
+    }
+
+    .btn-primary {
+      background-color: #8a63d2; /* Purple button color */
+      border-color: #8a63d2;
+    }
+
+    .btn-primary:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+      border-color: #613bbd;
+    }
+
+    /* Additional styles for projects section */
+    .project-inputs {
+      margin-bottom: 10px;
+    }
+
+    .remove-project {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2 class="mb-4">Hunter Signup</h2>
+    <form>
+      <!-- Basic Information -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="mb-3">
+        <label for="password-confirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="password-confirm" name="password-confirm" required>
+      </div>
+      <div class="mb-3">
+        <label for="full-name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="full-name" name="full-name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location">
+      </div>
+      <div class="mb-3">
+        <label for="linkedin" class="form-label">LinkedIn Profile</label>
+        <input type="text" class="form-control" id="linkedin" name="linkedin">
+      </div>
+      <div class="mb-3">
+        <label for="industry" class="form-label">Industry Type</label>
+        <input type="text" class="form-control" id="industry" name="industry">
+      </div>
+
+            <!-- Projects Section -->
+            <div class="mb-4">
+                <label class="form-label">Projects</label>
+                <div class="project-inputs">
+                  <div class="project-row">
+                    <div class="col">
+                      <input type="text" class="form-control" name="project-title[]" placeholder="Project Title" required>
+                    </div>
+                    <div class="col">
+                      <textarea class="form-control" name="project-description[]" placeholder="Project Description" rows="2" required></textarea>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="required-skills[]" placeholder="Required Skills" required>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control" name="budget[]" placeholder="Budget" required>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="duration[]" placeholder="Duration" required>
+                    </div>
+                    <div class="col">
+                      <select class="form-control" name="status[]" required>
+                        <option value="" disabled selected>Select Status</option>
+                        <option value="open">Open</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                      </select>
+                    </div>
+                    <div class="col-auto">
+                      <span class="remove-project" onclick="removeProject(this)">Remove</span>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addProject()">Add Project</button>
+              </div>
+        
+              <!-- Submit Button -->
+              <button  type="submit" class="btn btn-primary btn-block">
+                <a href="/hunterhume/" class="nav-link" href="#">Signup</a>
+              </button>
+            </form>
+          </div>
+
+      <!-- Submit Button -->
+      
+    </form>
+  </div
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for adding/removing projects -->
+  <script>
+    function addProject() {
+      const projectInputs = document.querySelector('.project-inputs');
+      const newProject = projectInputs.firstElementChild.cloneNode(true);
+      newProject.querySelectorAll('input, textarea, select').forEach((element) => {
+        element.value = '';
+      });
+      projectInputs.appendChild(newProject);
+    }
+
+    function removeProject(element) {
+      const projectInputs = document.querySelector('.project-inputs');
+      if (projectInputs.childElementCount > 1) {
+        projectInputs.removeChild(element.parentNode.parentNode);
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+
+
+
+

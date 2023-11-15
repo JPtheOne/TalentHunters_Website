@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hunter Profile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    .navbar {
+      background-color: #8a63d2; /* Purple background color */
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color for links */
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      color: #495057;
+    }
+
+    .form-control {
+      border-color: #ced4da;
+    }
+
+    .reputation-stars {
+      color: #f8d300; /* Yellow color for stars */
+    }
+
+    .project-list {
+      margin-bottom: 20px;
+    }
+
+    .project-item {
+      margin-bottom: 15px;
+    }
+
+    .project-status {
+      font-weight: bold;
+    }
+
+    .btn-change-info {
+      background-color: #8a63d2; /* Purple button color */
+      border-color: #8a63d2;
+      color: #fff;
+    }
+
+    .btn-change-info:hover {
+      background-color: #613bbd; /* Darker purple on hover */
+      border-color: #613bbd;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar for Logged-in Hunter -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Talent Hunters</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="hunterhume.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hunterprofile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="speedhunter.html">Speed Searching</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hunterproyects.html">My Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hunter Profile -->
+  <div class="profile-container">
+    <h2 class="mb-4">Hunter Profile</h2>
+
+    <!-- Profile Picture -->
+    <div class="mb-4 text-center">
+      <img src="juana.jpg" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+    </div>
+
+    <!-- Profile Information -->
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <p id="username">hunter_user456</p>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <p id="name">Jane Hunter</p>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <p id="email">jane.hunter@example.com</p>
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <p id="phone">987-654-3210</p>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <p id="location">City, Country</p>
+    </div>
+    <div class="mb-3">
+      <label for="linkedin" class="form-label">LinkedIn Profile</label>
+      <p id="linkedin">linkedin.com/in/janehunter</p>
+    </div>
+    <div class="mb-3">
+      <label for="reputation" class="form-label">Reputation</label>
+      <div class="reputation-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <!-- Project List -->
+    <div class="mb-3 project-list">
+      <label for="projects" class="form-label">Projects</label>
+      <div class="project-item">
+        <h5>Project 1</h5>
+        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Required Skills: Web Development, JavaScript</p>
+        <p>Budget: $5000</p>
+        <p>Duration: 3 months</p>
+        <p class="project-status">Status: Open</p>
+      </div>
+      <div class="project-item">
+        <h5>Project 2</h5>
+        <p>Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Required Skills: Mobile App Development, React Native</p>
+        <p>Budget: $7000</p>
+        <p>Duration: 4 months</p>
+        <p class="project-status">Status: In Progress</p>
+      </div>
+      <div class="project-item">
+        <h5>Project 3</h5>
+        <p>Description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Required Skills: Data Science, Python</p>
+        <p>Budget: $8000</p>
+        <p>Duration: 5 months</p>
+        <p class="project-status">Status: Completed</p>
+      </div>
+    </div>
+
+    <!-- Change Info Button -->
+    <button type="button" class="btn btn-change-info btn-block" onclick="changeInfo()">
+      <a href="hunterchangeinfo.html" class="nav-link" href="#">Change Info</a>
+    </button>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript for change info button -->
+  <script>
+    function changeInfo() {
+      // Add your logic here to enable form fields for editing
+      // You can use JavaScript to toggle the "readonly" attribute
+    }
+  </script>
+</body>
+
+</html>
