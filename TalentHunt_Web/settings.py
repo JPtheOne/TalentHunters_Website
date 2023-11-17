@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-j+2kj^d4ql(m(cch_!@66n2g-=b7=1_*5prnat-nnc(uq=8e@c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TalentHunt_Web',
 ]
 
 MIDDLEWARE = [

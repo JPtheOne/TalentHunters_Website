@@ -67,8 +67,9 @@
 <body>
   <div class="signup-container">
     <h2 class="mb-4">Hunter Signup</h2>
-    <form>
-      <!-- Basic Information -->
+    <form method='post' action="/huntersign/">
+      {% csrf_token %}
+      <!-- Basic In  ation -->
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" name="username" required>
@@ -143,9 +144,10 @@
               </div>
         
               <!-- Submit Button -->
-              <button  type="submit" class="btn btn-primary btn-block">
-                <a href="/hunterhume/" class="nav-link" href="#">Signup</a>
-              </button>
+             
+              <!-- Correct Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block">Signup</button>
+              
             </form>
           </div>
 

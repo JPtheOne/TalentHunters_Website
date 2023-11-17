@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .models import Hunter, Project
 
 #region DB views
 def login_view(request):
@@ -14,8 +16,66 @@ def login_view(request):
             return redirect('/hunterhume/')  # Redirect to a home page or dashboard
         else:
             messages.error(request, 'Invalid username or password.')
-
     return render(request, 'login.html')
+
+from django.contrib.auth.models import User
+from .models import Hunter, Project
+
+def hunterHume_sign(request):
+    if request.method == 'POST':
+        print("Received POST data:", request.POST)
+        # Correctly extracting form data using the correct field names
+        username = request.POST.get('username')
+        email = request.POST.get('email', '')
+        print("Username:", username, "Email:", email, ...)
+        password = request.POST.get('password')
+        full_name = request.POST.get('full-name')
+        phone_number = request.POST.get('phone', '')
+        location = request.POST.get('location', '')
+        linkedin_profile = request.POST.get('linkedin', '')
+        industry = request.POST.get('industry', '')
+
+        # Create a new User
+        print("Creating user with Username:", username, "Email:", email)
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password
+        )
+        
+        # Create a new Hunter
+        print("Creating hunter for User:", user.username)
+        hunter = Hunter.objects.create(
+            user=user,
+            full_name=full_name,
+            phone_number=phone_number,
+            location=location,
+            linkedin_profile=linkedin_profile,
+            industry=industry
+        )
+
+        # Handling multiple projects
+        project_titles = request.POST.getlist('project-title[]')
+        project_descriptions = request.POST.getlist('project-description[]')
+        required_skills = request.POST.getlist('required-skills[]')
+        budgets = request.POST.getlist('budget[]')
+        durations = request.POST.getlist('duration[]')
+        statuses = request.POST.getlist('status[]')
+
+        for i in range(len(project_titles)):
+            Project.objects.create(
+                hunter=hunter,
+                title=project_titles[i],
+                description=project_descriptions[i],
+                required_skills=required_skills[i],
+                budget=budgets[i],
+                duration=durations[i],
+                status=statuses[i]
+            )
+
+        return redirect('/hunterhume/')
+    return render(request, 'huntersign.html')
+
 #endregion
 
 #region html basic views
