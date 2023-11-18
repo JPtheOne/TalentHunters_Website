@@ -45,7 +45,7 @@ def huntersignup2_view(request):
                 project.hunter = hunter
                 project.save()
 
-            return redirect('hunterhume.html')
+            return redirect('/hunterhume/')
 
     else:
         hunter_form = Hunter2Form()
