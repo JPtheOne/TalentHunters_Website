@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hunter Signup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <style>/* Tus estilos aquí */
+        
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2 class="mb-4">Hunter Signup</h2>
+        <form method='post' > <!-- Asegúrate de usar la URL correcta aquí -->
+            {% csrf_token %}
+            
+            <!-- Campos de Hunter2Form -->
+            {{ hunter_form.as_p }}
+
+            <!-- Sección de Proyectos -->
+            <div class="mb-4">
+                <label class="form-label">Projects</label>
+                <div id="project-forms-container">
+                    {% for project_form in project_forms %}
+                        <div class="project-form">
+                            {{ project_form.as_p }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" class="btn btn-secondary" id="add-project">Add Project</button>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" class="btn btn-primary btn-block">Signup</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for adding/removing projects -->
+    <script>
+        // Tu lógica de JavaScript aquí para manejar la adición y eliminación de proyectos
+    </script>
+</body>
+</html>

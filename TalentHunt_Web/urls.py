@@ -26,4 +26,6 @@ urlpatterns = [
     path('talentproyects/', talentProjects_view, name='talentproyects'),
     path('talentchangeinfo/', talentChangeInfo_view, name='talentchangeinfo'),
     path('simple-form/', simple_form_view, name='simple_form'),
+    path('huntersign2/', huntersignup2_view, name='huntersignup2'),
+
 ]

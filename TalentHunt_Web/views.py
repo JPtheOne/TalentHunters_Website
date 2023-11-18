@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Hunter, Project
+from .models import Hunter, Project, Hunter2, Project2
+from .forms import SimpleForm, Hunter2Form, Project2Form
 
 #region DB views
 def login_view(request):
@@ -18,9 +19,7 @@ def login_view(request):
             messages.error(request, 'Invalid username or password.')
     return render(request, 'login.html')
 
-from django.contrib.auth.models import User
-from .models import Hunter, Project
-from .forms import SimpleForm
+
 
 def simple_form_view(request):
     if request.method == 'POST':
@@ -32,6 +31,27 @@ def simple_form_view(request):
         form = SimpleForm()
 
     return render(request, 'simple_form.html', {'form': form})
+
+def huntersignup2_view(request):
+    if request.method == 'POST':
+        hunter_form = Hunter2Form(request.POST)
+        project_forms = [Project2Form(request.POST, prefix=str(x), files=request.FILES) for x in range(0, 3)] # Ejemplo para 3 proyectos
+
+        if hunter_form.is_valid() and all([pf.is_valid() for pf in project_forms]):
+            hunter = hunter_form.save()
+
+            for pf in project_forms:
+                project = pf.save(commit=False)
+                project.hunter = hunter
+                project.save()
+
+            return redirect('hunterhume.html')
+
+    else:
+        hunter_form = Hunter2Form()
+        project_forms = [Project2Form(prefix=str(x)) for x in range(0, 3)] # Ejemplo para 3 proyectos
+
+    return render(request, 'huntersign2.html', {'hunter_form': hunter_form, 'project_forms': project_forms})
 
 def hunterHume_sign(request):
     if request.method == 'POST':
