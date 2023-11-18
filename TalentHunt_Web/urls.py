@@ -25,4 +25,5 @@ urlpatterns = [
     path('speedtalent/', speedTalent_view, name='speedtalent'),
     path('talentproyects/', talentProjects_view, name='talentproyects'),
     path('talentchangeinfo/', talentChangeInfo_view, name='talentchangeinfo'),
+    path('simple-form/', simple_form_view, name='simple_form'),
 ]

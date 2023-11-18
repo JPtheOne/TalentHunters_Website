@@ -28,3 +28,12 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+class SimpleModel(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+
+    

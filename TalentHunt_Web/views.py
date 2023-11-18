@@ -20,6 +20,18 @@ def login_view(request):
 
 from django.contrib.auth.models import User
 from .models import Hunter, Project
+from .forms import SimpleForm
+
+def simple_form_view(request):
+    if request.method == 'POST':
+        form = SimpleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'success.html')
+    else:
+        form = SimpleForm()
+
+    return render(request, 'simple_form.html', {'form': form})
 
 def hunterHume_sign(request):
     if request.method == 'POST':
